@@ -122,17 +122,34 @@ filtreHotelsEtRestaurants.addEventListener("click", function(){
     couleurFiltre(filtreHotelsEtRestaurants, "true");
 });
 
+
+
+
+const loginLien = document.querySelector("#login");
+loginLien.addEventListener("click", () => {
+    window.location.href = 'login.html';
+});
+
 // fonction pour cacher les bouton
 function montrerCacherBouttons(){
     const display = document.querySelector(".conteneurFiltre").style.display;
     if(display === "flex"){
         document.querySelector(".conteneurFiltre").style.display="none";
+        document.querySelector("#portfolio h2").style.marginBottom="134px";
 
     }else if(display === "none"){
         document.querySelector(".conteneurFiltre").style.display="flex"
-
+        document.querySelector("#portfolio h2").style.marginBottom="0";
+        
     }
-}
+};
+
+
+
+
+
+
+
 
 
 
