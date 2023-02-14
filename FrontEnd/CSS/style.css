@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+	scroll-behavior: smooth;
+}
 body{
     background-color: #FFFEF8;
     font-family: 'Work Sans';
@@ -106,29 +109,29 @@ a:hover {
 .gallery img {
 	width: 100%;
 }
-#contact {
+#contact, #connection{
 	width: 35%;
 	margin: 40px auto;
 }
-#contact > * {
+#contact > *, #connection > * {
 	text-align: center;
 }
-#contact h2{
+#contact h2, #connection h2{
 	margin-bottom: 20px;
 }
-#contact form {
+#contact form, #connection form{
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
-#contact input {
+#contact input, #connection input{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label, #connection label{
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -151,4 +154,20 @@ footer{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+/* page login (formulaire jumelé avec contact homepage)*/
+.bodyLogin{
+	height: 100vh;
+}
+.login{
+	font-weight: 900;
+}
+#connection a{
+	text-align: center;
+	text-decoration-line: underline;
+}
+.footerLogin{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
