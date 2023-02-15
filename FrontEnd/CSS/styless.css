@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+    background-color: #FFFEF8;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    max-width: 1440px;
+    margin: auto;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+    margin: 40px 80px;
+}
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+}
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+a:hover {
+	color: #B1663C;
+}
+#introduction {
+	display: flex;
+    margin: 100px 150px;
+}
+.conteneurPhoto, .conteneurDescription{
+	flex-basis: 50%;
+}
+#introduction img {
+	/* display: block; */
+	margin: auto;
+	width: 90%;
+	/* object-fit: cover; */
+}
+#introduction article {
+    padding: 0px 60px;
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+#introduction p {
+	margin-bottom: 0.5em;
+	font-size: 14px;
+}
+#portfolio{
+    padding: 0 172px;
+}
+#portfolio h2 {
+	text-align: center;
+	/* margin-bottom: 1em; */
+}
+.conteneurBtn{
+    margin: 40px auto;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+.btn{
+    color: #1D6154;
+    background-color: #FFFEF8;
+    border: 2px solid #1D6154;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 35px;
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+.gallery img {
+	width: 100%;
+}
+#contact, #connection{
+	width: 35%;
+	margin: 40px auto;
+}
+#contact > *, #connection > * {
+	text-align: center;
+}
+#contact h2, #connection h2{
+	margin-bottom: 20px;
+}
+#contact form, #connection form{
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+#contact input, #connection input{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label, #connection label{
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+footer{
+    background-color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+/* page login (formulaire jumelé avec contact homepage)*/
+.bodyLogin{
+	height: 100vh;
+}
+.login{
+	font-weight: 900;
+}
+#connection a{
+	text-align: center;
+	text-decoration-line: underline;
+}
+.footerLogin{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+/* pour la modale */
+.modaleBarre{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	padding: 10px;
+}
+.modaleBarre p, .modaleBarre i{
+	color: rgb(218, 218, 218);
+	margin-right: 10px;
+	letter-spacing: 1px;
+}
+.modaleBarre button{
+	background-color: white;
+	border-radius: 30px;
+	padding: 10px 20px;
+	letter-spacing: 1px;
+	font-weight: 600;
+}
+.modaleEditionProjets, 
+.modaleEditionPhotoProfil, 
+.modaleEditionDescription{
+	display: flex;
+}
+.modaleEditionPhotoProfil{
+	margin: 15px 30px;
+}
+.modaleEditionDescription{
+	margin: 20px 10% 25px;
+}
+.modaleEditionProjets p, .modaleEditionProjets i,
+.modaleEditionPhotoProfil p, .modaleEditionPhotoProfil i,
+.modaleEditionDescription p, .modaleEditionDescription i{
+	margin-right: 10px;
+	letter-spacing: 1px;
+}
+.conteneurProjets {
+	display: flex;
+	align-items: center;
+	width: 65%;
+	justify-content: flex-end;
+	gap: 15px;
+}
+.conteneurModale{
+	width: 500px;
+	min-height: 600px;
+	background-color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+.croix1, .croix2{
+	width: 15px;
+	height: 2px;
+	background-color: #000000;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+}
+.croix1{
+	transform: rotate(45DEG);
+}
+.croix2{
+	transform: rotate(-45DEG);
+}
+.conteneurModale h2{
+	text-align: center;
+	margin: 40px;
+}
+.trait{
+	height: 1px;
+	width: 80%;
+	background-color: #1D6154;
+	display: block;
+	margin: auto;
+}
+.conteneurModale input{
+	display: block;
+}
+.conteneurModale p{
+	text-align: center;
+}
