@@ -193,6 +193,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 #barreModale .btnEdition{
     color: white;
@@ -221,12 +223,12 @@ footer{
     margin: 10px;
 }
 /* modale niveau 1 */
-.barreModale{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding: 10px;
+.overlay{
+    position: fixed;
+    top: 0;
+    width: 1140px;
+    height: 100%;
+    background-color: #333333d3;
 }
 #grandConteneurModale{
     position: fixed;
@@ -238,7 +240,7 @@ footer{
     background-color: white;
     border-radius: 10px;
     padding: 40px;
-    border: 1px solid black;
+    z-index: 2;
 }
 .iconsModale{
     display: flex;

@@ -27,15 +27,19 @@ if(admin === "true"){
 
 // Cliquer sur modifier pour afficher la modale gallery
 const modaleMain = document.querySelector("#grandConteneurModale");
-const modalegallerie = document.querySelector("#conteneurModale1");
-
+const modaleGallerie = document.querySelector("#conteneurModale1");
 const modifierProjets = document.querySelector(".modaleEditionProjets .btnEdition");
+
 modifierProjets.addEventListener("click", function(){
-
+    
     modaleMain.style.display="block";
-    modalegallerie.style.display="flex";
-
+    modaleGallerie.style.display="flex";
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    document.body.appendChild(overlay);
+    
 })
+
 // se deconnecter en vidant le local Storage
 logoutBtn.addEventListener("click",function(){
     
