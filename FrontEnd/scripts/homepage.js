@@ -92,17 +92,7 @@ filtreHotelsEtRestaurants.addEventListener("click", function(){
 
 
 
-// fonction pour cacher les bouton
-function montrerCacherBouttons(){
-    const visibility = document.querySelector(".conteneurBtnFiltre").style.visibility;
-    if(visibility === "visible"){
-        document.querySelector(".conteneurBtnFiltre").style.visibility="hidden";
 
-    }else if(visibility === "hidden"){
-        document.querySelector(".conteneurBtnFiltre").style.visibility="visible";
-        
-    }
-};
 
 
 

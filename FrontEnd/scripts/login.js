@@ -18,14 +18,15 @@ form.addEventListener('submit', (event) => {
     .then(data => {
         if(data.userId === 1){
             localStorage.setItem("admin", true);
-            localStorage.setItem('token', data.token);
-            window.location.href = 'index.html';
+            localStorage.setItem("token", data.token);
+            window.location.href = "index.html";
         }else{
             prompt("Mail ou mot de passe incorrect!")
         }
     })
     .catch(error => console.error(error));
 });
+
         
         
   
