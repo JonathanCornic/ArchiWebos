@@ -1,7 +1,11 @@
 // appel et stockage du fetch
-const reponse = await fetch("http://localhost:5678/api/works");
-const projets = await reponse.json();
-console.log(projets);
+let reponse = await fetch("http://localhost:5678/api/works");
+let projets = await reponse.json();
+if(reponse.ok){
+    console.log(projets);
+}else{
+    alert("HTTP-error: " + reponse.status);
+}
 
 // balise de ratachement
 const portfolio = document.querySelector("#portfolio");
@@ -31,7 +35,7 @@ function genererProjets(projets){
 genererProjets(projets);
 
 // selection conteneur filtre
-const conteneurFiltre = document.querySelector(".conteneurBtn").style.display="flex";
+const conteneurFiltre = document.querySelector(".conteneurBtnFiltre").style.display="flex";
 
 // selection des boutons de filtre
 const filtreTous = document.querySelector(".btnTous");
@@ -90,19 +94,15 @@ filtreHotelsEtRestaurants.addEventListener("click", function(){
 
 // fonction pour cacher les bouton
 function montrerCacherBouttons(){
-    const display = document.querySelector(".conteneurBtn").style.display;
-    if(display === "flex"){
-        document.querySelector(".conteneurBtn").style.display="none";
-        document.querySelector("#portfolio h2").style.marginBottom="125px";
+    const visibility = document.querySelector(".conteneurBtnFiltre").style.visibility;
+    if(visibility === "visible"){
+        document.querySelector(".conteneurBtnFiltre").style.visibility="hidden";
 
-    }else if(display === "none"){
-        document.querySelector(".conteneurBtn").style.display="flex";
-        document.querySelector("#portfolio h2").style.marginBottom="0";
+    }else if(visibility === "hidden"){
+        document.querySelector(".conteneurBtnFiltre").style.visibility="visible";
         
     }
 };
-
-
 
 
 
