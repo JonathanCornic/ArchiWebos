@@ -228,7 +228,7 @@ footer{
     top: 0;
     width: 1140px;
     height: 100%;
-    background-color: #333333d3;
+    background-color: #33333377;
 }
 #grandConteneurModale{
     position: fixed;
@@ -260,11 +260,31 @@ footer{
     margin: 30px 0;
     color: black;
 }
-.contenueGallery{
-    background-color: black;
+/* gallery modale */
+.contenueGalleryPreview{
     width: 100%;
-    height: 400px;
+    min-height: 450px;
     margin: 0 auto;
+    display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+}
+.galleryPreview{
+    position: relative;
+}
+.galleryPreview img{
+	width: 100%;
+}
+/* bouton poubelle */
+.fa-trash-can::before{
+    color: white;
+    background: black;
+    padding: 3px 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 .separateur{
     width: 100%;
