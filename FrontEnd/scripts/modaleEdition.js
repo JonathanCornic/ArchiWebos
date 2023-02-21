@@ -5,6 +5,15 @@ const modifierDescription = document.querySelector(".modaleEditionDescription");
 const editionProjets = document.querySelector(".modaleEditionProjets");
 const loginBtn = document.querySelector(".loginIndex");
 const logoutBtn = document.querySelector(".logout"); 
+const modale2 = document.querySelector("#conteneurModale2")
+const fleche = document.querySelector(".fa-arrow-left")
+const ajouterPhoto = document.querySelector("#conteneurModale1 input");
+const ajouter = document.querySelector(".ajoutPhoto");
+const modaleMain = document.querySelector("#grandConteneurModale");
+const modaleGallerie = document.querySelector("#conteneurModale1");
+const modifierProjets = document.querySelector(".modaleEditionProjets .btnEdition");
+const inputFile = document.getElementById("inputFile");
+const apercu = document.getElementById("apercu");
 
 // fonction pour afficher le mode edition
 function affichageModeEdition(){
@@ -52,9 +61,6 @@ function genererPreview(){
 }
 
 // Cliquer sur modifier pour afficher la modale gallery
-const modaleMain = document.querySelector("#grandConteneurModale");
-const modaleGallerie = document.querySelector("#conteneurModale1");
-const modifierProjets = document.querySelector(".modaleEditionProjets .btnEdition");
 
 modifierProjets.addEventListener("click", function(){
     
@@ -98,16 +104,8 @@ fermerIcon.addEventListener("click",function(){
     modaleMain.style.display="none";
     modale2.style.display="none";
     fleche.style.visibility="hidden";
-
-})
-// Ajouter une photo ouvrir la modale photo 
-const modale2 = document.querySelector("#conteneurModale2")
-const fleche = document.querySelector(".fa-arrow-left")
-const ajouterPhoto = document.querySelector("#conteneurModale1 input");
-ajouterPhoto.addEventListener("click", function(){
-    modaleGallerie.style.display="none";
-    modale2.style.display="block";
-    fleche.style.visibility="visible";
+    apercu.style.display="none";
+    
 
 })
 // revenir en arrère
@@ -117,8 +115,46 @@ fleche.addEventListener("click", function(){
     modale2.style.display="none";
     fleche.style.visibility="hidden"
     modaleGallerie.style.display="flex";
+    apercu.style.display="none";
+    ajouter.style.display="none";
     genererPreview();
+
 })
+
+// Ajouter une photo ouvrir la modale photo 
+ajouterPhoto.addEventListener("click", function(){
+    modaleGallerie.style.display="none";
+    modale2.style.display="block";
+    fleche.style.visibility="visible";
+    ajouter.style.display="block";
+    apercu.style.display="none";
+
+})
+
+// aperçu Photo
+
+inputFile.addEventListener("change", function(){
+    const file = this.files[0];
+    if(file){
+        const fileReader = new FileReader();
+        fileReader.addEventListener("load", function(){
+            apercu.setAttribute("src", this.result);
+            ajouter.style.display="none";
+            apercu.style.display="block";
+        });
+        fileReader.readAsDataURL(file);
+    }else{
+        apercu.setAttribute("src", "");
+    }
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -137,4 +173,3 @@ logoutBtn.addEventListener("click",function(){
 
     localStorage.clear();
 })
-

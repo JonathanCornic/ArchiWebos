@@ -328,10 +328,30 @@ footer{
     color: #285f7a;
     background-color: #cbc9c977;
     margin: auto;
+    
 }
 .formModale p{
     text-align: center;
     margin: 10px;
+}
+#inputFile{
+    width: 210px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 2;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+#apercu{
+    width: 134px;
+    
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 /* selection */
 .modaleSelection{
