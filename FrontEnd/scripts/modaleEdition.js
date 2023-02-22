@@ -104,7 +104,10 @@ fermerIcon.addEventListener("click",function(){
     modale2.style.display="none";
     fleche.style.visibility="hidden";
     apercu.style.display="none";
-    
+    inputFile.value="";
+    titre.value="";
+    select.value="";
+    validerPhoto.style.backgroundColor = '#cbc9c977';
 
 })
 // revenir en arrère
@@ -116,6 +119,10 @@ fleche.addEventListener("click", function(){
     modaleGallerie.style.display="flex";
     apercu.style.display="none";
     ajouter.style.display="none";
+    inputFile.value="";
+    titre.value="";
+    select.value="";
+    validerPhoto.style.backgroundColor = '#cbc9c977';
     genererPreview();
 
 })
