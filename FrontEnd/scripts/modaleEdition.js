@@ -8,12 +8,15 @@ const logoutBtn = document.querySelector(".logout");
 const modale2 = document.querySelector("#conteneurModale2")
 const fleche = document.querySelector(".fa-arrow-left")
 const ajouterPhoto = document.querySelector("#conteneurModale1 input");
-const ajouter = document.querySelector(".ajoutPhoto");
+const ajouter = document.querySelector('label[for="inputFile"]');
 const modaleMain = document.querySelector("#grandConteneurModale");
 const modaleGallerie = document.querySelector("#conteneurModale1");
 const modifierProjets = document.querySelector(".modaleEditionProjets .btnEdition");
 const inputFile = document.getElementById("inputFile");
 const apercu = document.getElementById("apercu");
+const validerPhoto = document.querySelector('.modaleSelection input[type="submit"]');
+const titre = document.querySelector('.titreModale2');
+const select = document.querySelector('.selectionCategorie');
 
 // fonction pour afficher le mode edition
 function affichageModeEdition(){
@@ -27,13 +30,11 @@ function affichageModeEdition(){
     logoutBtn.style.display="flex";
 
 }
-
 // etre administateur pour afficher le mode edition
 const admin = localStorage.getItem("admin");
 if(admin === "true"){
     affichageModeEdition()
 }
-
 // fonction de la preview 
 function genererPreview(){
     fetch("http://localhost:5678/api/works")
@@ -59,9 +60,7 @@ function genererPreview(){
         
     })
 }
-
 // Cliquer sur modifier pour afficher la modale gallery
-
 modifierProjets.addEventListener("click", function(){
     
     modaleMain.style.display="block";
@@ -120,7 +119,6 @@ fleche.addEventListener("click", function(){
     genererPreview();
 
 })
-
 // Ajouter une photo ouvrir la modale photo 
 ajouterPhoto.addEventListener("click", function(){
     modaleGallerie.style.display="none";
@@ -130,9 +128,7 @@ ajouterPhoto.addEventListener("click", function(){
     apercu.style.display="none";
 
 })
-
 // aperçu Photo
-
 inputFile.addEventListener("change", function(){
     const file = this.files[0];
     if(file){
@@ -147,6 +143,28 @@ inputFile.addEventListener("change", function(){
         apercu.setAttribute("src", "");
     }
 });
+
+// background bouton valider Photo
+modale2.addEventListener("input",() => {
+    if (titre.value !== '' && inputFile.value !== '' && select.value !== '') {
+        validerPhoto.style.backgroundColor = '#1D6154';
+    }else{
+        validerPhoto.style.backgroundColor = '#cbc9c977';
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
