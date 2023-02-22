@@ -21,7 +21,7 @@ form.addEventListener('submit', (event) => {
             localStorage.setItem("token", data.token);
             window.location.href = "index.html";
         }else{
-            prompt("Mail ou mot de passe incorrect!")
+            confirm("Mail ou mot de passe incorrect!")
         }
     })
     .catch(error => console.error(error));

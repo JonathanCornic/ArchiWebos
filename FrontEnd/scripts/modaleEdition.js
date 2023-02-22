@@ -17,6 +17,7 @@ const apercu = document.getElementById("apercu");
 const validerPhoto = document.querySelector('.modaleSelection input[type="submit"]');
 const titre = document.querySelector('.titreModale2');
 const select = document.querySelector('.selectionCategorie');
+const overlay = document.querySelector(".overlay");
 
 // fonction pour afficher le mode edition
 function affichageModeEdition(){
@@ -35,39 +36,55 @@ const admin = localStorage.getItem("admin");
 if(admin === "true"){
     affichageModeEdition()
 }
-// fonction de la preview 
+// fonction de la preview et suppression de projet
 function genererPreview(){
     fetch("http://localhost:5678/api/works")
-    .then(reponse => reponse.json())
-    .then(data =>{
-        data.forEach(element => {
+        .then(reponse => reponse.json())
+        .then(data =>{
+            data.forEach(element => {
+                const conteneurGalleryPhoto = document.querySelector(".contenueGalleryPreview");
+                const galleryPreview = document.createElement("figure");
+                galleryPreview.className ="galleryPreview";
+                const iconPoubelle = document.createElement("button")
+                iconPoubelle.className="fa-regular fa-trash-can"
+                const galleryPreviewImg = document.createElement("img");
+                galleryPreviewImg.src = element.imageUrl;
+                const editerTitre = document.createElement("figcaption");
+                editerTitre.innerHTML="éditer";
+
+                iconPoubelle.addEventListener("click", function() {
+                    fetch(`http://localhost:5678/api/works/${element.id}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("token"),
+                        },
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            galleryPreview.remove();
+                        } else {
+                            console.log('La suppression du projet a échoué.');
+                        }
+                    })
+                    .catch(error => {
+                        console.log('Une erreur s\'est produite lors de la suppression du projet:', error);
+                    });
+                });
             
-            const conteneurGalleryPhoto = document.querySelector(".contenueGalleryPreview");
-            const galleryPreview = document.createElement("figure");
-            galleryPreview.className ="galleryPreview";
-            const iconPoubelle = document.createElement("button")
-            iconPoubelle.className="fa-regular fa-trash-can"
-            const galleryPreviewImg = document.createElement("img");
-            galleryPreviewImg.src = element.imageUrl;
-            const editerTitre = document.createElement("figcaption");
-            editerTitre.innerHTML="éditer";
-            
-            conteneurGalleryPhoto.appendChild(galleryPreview);
-            galleryPreview.appendChild(iconPoubelle);
-            galleryPreview.appendChild(galleryPreviewImg);
-            galleryPreview.appendChild(editerTitre);
-        });
-        
-    })
+                conteneurGalleryPhoto.appendChild(galleryPreview);
+                galleryPreview.appendChild(iconPoubelle);
+                galleryPreview.appendChild(galleryPreviewImg);
+                galleryPreview.appendChild(editerTitre);
+            });
+        })
 }
 // Cliquer sur modifier pour afficher la modale gallery
 modifierProjets.addEventListener("click", function(){
     
     modaleMain.style.display="block";
     modaleGallerie.style.display="flex";
-    const overlay = document.createElement("div");
-    overlay.className = "overlay";
-    document.body.appendChild(overlay);
+    overlay.style.display="flex";
     genererPreview();
     
 })
@@ -98,8 +115,22 @@ const fermerIcon = document.querySelector(".fa-xmark");
 fermerIcon.addEventListener("click",function(){
     
     removeGalleryPreview();
-    const overlay = document.querySelector(".overlay");
-    overlay.remove();
+    overlay.style.display="none";
+    modaleMain.style.display="none";
+    modale2.style.display="none";
+    fleche.style.visibility="hidden";
+    apercu.style.display="none";
+    inputFile.value="";
+    titre.value="";
+    select.value="";
+    validerPhoto.style.backgroundColor = '#cbc9c977';
+
+})
+// fermer la modale en cliquant en dehors
+overlay.addEventListener("click",function(){
+    
+    removeGalleryPreview();
+    overlay.style.display="none";
     modaleMain.style.display="none";
     modale2.style.display="none";
     fleche.style.visibility="hidden";
@@ -150,7 +181,6 @@ inputFile.addEventListener("change", function(){
         apercu.setAttribute("src", "");
     }
 });
-
 // background bouton valider Photo
 modale2.addEventListener("input",() => {
     if (titre.value !== '' && inputFile.value !== '' && select.value !== '') {
@@ -161,29 +191,29 @@ modale2.addEventListener("input",() => {
 })
 
 
+// bouton valider POST
+// validerPhoto.addEventListener("click", (event) =>{
+//     event.preventDefault();
 
+//     const token = localStorage.getItem("token");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     fetch("http://localhost:5678/api/works",{
+//         method: "POST",
+//         body: JSON.stringify({
+            
+//             title: titre.value,
+//             imageUrl: inputFile.value,
+//             categoryId: select.value
+           
+//         }),
+//         headers: {
+//             'Content-Type' : 'multipart/form-data',
+//             Authorization : `Bearer ${token}`
+//         }
+//     })
+//     .then(reponse => reponse.json())
+//     .then(data => console.log(data))
+// })
 
 // se deconnecter en vidant le local Storage
 logoutBtn.addEventListener("click",function(){

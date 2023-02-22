@@ -338,9 +338,8 @@ label[for="inputFile"]{
 }
 #apercu{
     width: 134px;
-    
     position: absolute;
-    top: 36%;
+    top: 36.05%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
