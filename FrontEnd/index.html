@@ -37,25 +37,28 @@
 		<div id="conteneurModale2" style="display:none">
 			<h2>Ajout photo</h2>
 			<form class="formModale" method="post">
-				<i class="fa-regular fa-image"></i>
-				<input id="inputFile" type="file" accept=".jpg, .jpeg, .png" hidden>
-				<label for="inputFile">+ Ajouter photo</label>
-				<img id="apercu" src="#" alt="Aperçu de l'image" style="display: none;">
-				<p>jpg, png : 4mo max</p>
+				<div class="conteneurPreview">
+					<i class="fa-regular fa-image"></i>
+					<input id="inputFile" type="file" accept=".jpg, .jpeg, .png" hidden>
+					<label for="inputFile">+ Ajouter photo</label>
+					<img id="apercu" src="#" alt="Aperçu de l'image" style="display: none;">
+					<p>jpg, png : 4mo max</p>
+				</div>
+
+				<div class="modaleSelection">
+					<h3>Titre</h3>
+					<input class="titreModale2" type="text">
+					<h3>Catégorie</h3>
+					<select class="selectionCategorie">
+						<option value="">Choisir une catégorie</option>
+						<option value="1">Objets</option>
+						<option value="2">Appartements</option>
+						<option value="3">Hôtels & restaurants</option>
+					</select>
+					<span class="separateur2"></span>
+					<input class="validerPhoto" type="submit" value="Valider">
+				</div>
 			</form>
-			<div class="modaleSelection">
-				<h3>Titre</h3>
-				<input class="titreModale2" type="text">
-				<h3>Catégorie</h3>
-				<select class="selectionCategorie">
-					<option value="">Choisir une catégorie</option>
-					<option value="1">Objets</option>
-					<option value="2">Appartements</option>
-					<option value="3">Hôtels & restaurants</option>
-				</select>
-				<span class="separateur2"></span>
-				<input class="validerPhoto" type="submit" value="Valider">
-			</div>
 		</div>
 	</div>
 

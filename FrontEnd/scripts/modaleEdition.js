@@ -192,28 +192,26 @@ modale2.addEventListener("input",() => {
 
 
 // bouton valider POST
-// validerPhoto.addEventListener("click", (event) =>{
-//     event.preventDefault();
+const formModale = document.querySelector(".formModale")
+formModale.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-//     const token = localStorage.getItem("token");
 
-//     fetch("http://localhost:5678/api/works",{
-//         method: "POST",
-//         body: JSON.stringify({
-            
-//             title: titre.value,
-//             imageUrl: inputFile.value,
-//             categoryId: select.value
-           
-//         }),
-//         headers: {
-//             'Content-Type' : 'multipart/form-data',
-//             Authorization : `Bearer ${token}`
-//         }
-//     })
-//     .then(reponse => reponse.json())
-//     .then(data => console.log(data))
-// })
+    const formData = new FormData();
+    formData.append("image", inputFile.files[0]);
+    formData.append("title", titre.value);
+    formData.append("category", select.value);
+
+    fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token"),
+        },
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+})
 
 // se deconnecter en vidant le local Storage
 logoutBtn.addEventListener("click",function(){
