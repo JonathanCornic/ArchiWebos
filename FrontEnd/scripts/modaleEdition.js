@@ -19,7 +19,7 @@ const titre = document.querySelector('.titreModale2');
 const select = document.querySelector('.selectionCategorie');
 const overlay = document.querySelector(".overlay");
 
-// fonction pour afficher le mode edition
+// afficher le mode edition
 function affichageModeEdition(){
     
     visibility.style.visibility="hidden";
@@ -36,7 +36,7 @@ const admin = localStorage.getItem("admin");
 if(admin === "true"){
     affichageModeEdition()
 }
-// fonction de la preview et suppression de projet
+// genere la preview et suppression de projet
 function genererPreview(){
     fetch("http://localhost:5678/api/works")
         .then(reponse => reponse.json())
@@ -88,7 +88,7 @@ modifierProjets.addEventListener("click", function(){
     genererPreview();
     
 })
-// fonction remove galleryPreview
+// remove galleryPreview
 function removeGalleryPreview(){
 
     const galleryPreviewList = document.querySelectorAll(".galleryPreview");
@@ -157,7 +157,7 @@ fleche.addEventListener("click", function(){
     genererPreview();
 
 })
-// Ajouter une photo ouvrir la modale photo 
+// ouvrir la modale photo 
 ajouterPhoto.addEventListener("click", function(){
     modaleGallerie.style.display="none";
     modale2.style.display="block";
@@ -170,6 +170,14 @@ ajouterPhoto.addEventListener("click", function(){
 inputFile.addEventListener("change", function(){
     const file = this.files[0];
     if(file){
+        // Vérifie la taille du fichier
+        const fileSize = file.size;
+        const maxSize = 4 * 1024 * 1024;
+        if (fileSize > maxSize) {
+            alert("Le fichier est trop volumineux (maximum 4 Mo)");
+            return;
+        }
+
         const fileReader = new FileReader();
         fileReader.addEventListener("load", function(){
             apercu.setAttribute("src", this.result);
@@ -181,7 +189,7 @@ inputFile.addEventListener("change", function(){
         apercu.setAttribute("src", "");
     }
 });
-// background bouton valider Photo
+//  verifie si tous les champs sont remplis/background bouton valider Photo
 modale2.addEventListener("input",() => {
     if (titre.value !== '' && inputFile.value !== '' && select.value !== '') {
         validerPhoto.style.backgroundColor = '#1D6154';
@@ -189,9 +197,7 @@ modale2.addEventListener("input",() => {
         validerPhoto.style.backgroundColor = '#cbc9c977';
     }
 })
-
-
-// bouton valider POST
+// envoie de nouveaux projets
 const formModale = document.querySelector(".formModale")
 formModale.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -212,7 +218,6 @@ formModale.addEventListener("submit", (event) => {
     .then(response => response.json())
     .then(data => console.log(data))
 })
-
 // se deconnecter en vidant le local Storage
 logoutBtn.addEventListener("click",function(){
     
