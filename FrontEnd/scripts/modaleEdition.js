@@ -84,6 +84,27 @@ function genererPreview(){
                         console.log("Une erreur s'est produite lors de la suppression du projet:", error);
                     });
                 });
+                // supprimer tous les projets
+                const toutSupprimer = document.querySelector(".supprimerGalleryPreview");
+                toutSupprimer.addEventListener("click", function(){
+                    fetch(`http://localhost:5678/api/works/${element.id}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("token"),
+                        },
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            galleryPreview.remove();
+                        } else {
+                            console.log("La suppression des projets a échoué.");
+                        }
+                    })
+                    .catch(error => {
+                        console.log("Une erreur s'est produite lors de la suppression des projets:", error);
+                    });
+                })
             
                 conteneurGalleryPhoto.appendChild(galleryPreview);
                 galleryPreview.appendChild(iconPoubelle);
@@ -101,7 +122,7 @@ modifierProjets.addEventListener("click", function(){
     genererPreview();
     
 })
-// remove galleryPreview
+// supprimer galleryPreview
 function removeGalleryPreview(){
 
     const galleryPreviewList = document.querySelectorAll(".galleryPreview");
@@ -109,7 +130,7 @@ function removeGalleryPreview(){
         galleryPreview.remove();
     });
 }
-// femer la modale avec le bouton x
+// fermer la modale avec le bouton x
 const fermerIcon = document.querySelector(".fa-xmark");
 fermerIcon.addEventListener("click",function(){
     
@@ -158,6 +179,7 @@ fleche.addEventListener("click", function(){
 })
 // ouvrir la modale photo 
 ajouterPhoto.addEventListener("click", function(){
+    
     modaleGallerie.style.display="none";
     modale2.style.display="block";
     fleche.style.visibility="visible";
@@ -167,6 +189,7 @@ ajouterPhoto.addEventListener("click", function(){
 })
 // aperçu Photo
 inputFile.addEventListener("change", function(){
+    
     const file = this.files[0];
     if(file){
         // Vérifie la taille du fichier
@@ -200,7 +223,6 @@ modale2.addEventListener("input",() => {
 const formModale = document.querySelector(".formModale")
 formModale.addEventListener("submit", (event) => {
     event.preventDefault();
-
 
     const formData = new FormData();
     formData.append("image", inputFile.files[0]);
