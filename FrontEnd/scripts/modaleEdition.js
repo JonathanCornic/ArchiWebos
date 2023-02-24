@@ -104,20 +104,6 @@ function removeGalleryPreview(){
     galleryPreviewList.forEach(function(galleryPreview) {
         galleryPreview.remove();
     });
-    
-    // const iconPoubelleList = document.querySelectorAll(".fa-regular.fa-trash-can");
-    // iconPoubelleList.forEach(function(iconPoubelle) {
-    //     iconPoubelle.remove();
-    // });
-    // const galleryPreviewImgList = document.querySelectorAll(".galleryPreview img");
-    // galleryPreviewImgList.forEach(function(galleryPreviewImg) {
-    //     galleryPreviewImg.remove();
-    // });
-    // const editerTitreList = document.querySelectorAll(".galleryPreview figcaption");
-    // editerTitreList.forEach(function(editerTitre) {
-    //     editerTitre.remove();
-    // });
-
 }
 // femer la modale avec le bouton x
 const fermerIcon = document.querySelector(".fa-xmark");
