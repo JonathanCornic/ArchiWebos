@@ -8,11 +8,11 @@ form.addEventListener('submit', (event) => {
     const password = document.getElementById('password').value
 
     fetch('http://localhost:5678/api/users/login',{
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      	method: 'POST',
+      	body: JSON.stringify({ email, password }),
+      	headers: {
+        	'Content-Type': 'application/json'
+      	}
     })
     .then(reponse =>  reponse.json())
     .then(data => {

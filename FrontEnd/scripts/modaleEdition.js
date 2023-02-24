@@ -39,7 +39,13 @@ if(admin === "true"){
 // genere la preview et suppression de projet
 function genererPreview(){
     fetch("http://localhost:5678/api/works")
-        .then(reponse => reponse.json())
+        .then(reponse => {
+            if(reponse.ok) {
+                return reponse.json();
+            }else{
+                throw new Error("echec lors de l'appel API.");
+            }
+        })
         .then(data =>{
             data.forEach((element, index) => {  
                 const conteneurGalleryPhoto = document.querySelector(".contenueGalleryPreview");
@@ -71,11 +77,11 @@ function genererPreview(){
                         if (response.ok) {
                             galleryPreview.remove();
                         } else {
-                            console.log('La suppression du projet a échoué.');
+                            console.log("La suppression du projet a échoué.");
                         }
                     })
                     .catch(error => {
-                        console.log('Une erreur s\'est produite lors de la suppression du projet:', error);
+                        console.log("Une erreur s'est produite lors de la suppression du projet:", error);
                     });
                 });
             
@@ -86,8 +92,6 @@ function genererPreview(){
             });
         })
 }
-
-
 // Cliquer sur modifier pour afficher la modale gallery
 modifierProjets.addEventListener("click", function(){
     
@@ -210,8 +214,13 @@ formModale.addEventListener("submit", (event) => {
             "Authorization": "Bearer " + localStorage.getItem("token"),
         },
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(reponse => {
+        if(reponse.ok) {
+            return reponse.json();
+        }else{
+            throw new Error("echec lors de l'appel API.");
+        }
+    })
 })
 // se deconnecter en vidant le local Storage
 logoutBtn.addEventListener("click",function(){

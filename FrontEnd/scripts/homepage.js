@@ -4,7 +4,7 @@ let projets = await reponse.json();
 if(reponse.ok){
     console.log(projets);
 }else{
-    alert("HTTP-error: " + reponse.status);
+    throw new Error("echec lors de l'appel API.");
 }
 
 // balise de ratachement
