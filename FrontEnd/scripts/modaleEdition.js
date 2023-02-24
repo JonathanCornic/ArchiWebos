@@ -41,7 +41,7 @@ function genererPreview(){
     fetch("http://localhost:5678/api/works")
         .then(reponse => reponse.json())
         .then(data =>{
-            data.forEach(element => {
+            data.forEach((element, index) => {  
                 const conteneurGalleryPhoto = document.querySelector(".contenueGalleryPreview");
                 const galleryPreview = document.createElement("figure");
                 galleryPreview.className ="galleryPreview";
@@ -52,6 +52,13 @@ function genererPreview(){
                 const editerTitre = document.createElement("figcaption");
                 editerTitre.innerHTML="éditer";
 
+                // icon sélection sur le premier élément
+                if (index === 0) {
+                    const iconSelection = document.createElement("button")
+                    iconSelection.className="fa-solid fa-arrows-up-down-left-right"
+                    galleryPreview.appendChild(iconSelection);
+                }
+                // supprimer un projet
                 iconPoubelle.addEventListener("click", function() {
                     fetch(`http://localhost:5678/api/works/${element.id}`, {
                         method: "DELETE",
@@ -79,6 +86,8 @@ function genererPreview(){
             });
         })
 }
+
+
 // Cliquer sur modifier pour afficher la modale gallery
 modifierProjets.addEventListener("click", function(){
     
@@ -96,18 +105,18 @@ function removeGalleryPreview(){
         galleryPreview.remove();
     });
     
-    const iconPoubelleList = document.querySelectorAll(".fa-regular.fa-trash-can");
-    iconPoubelleList.forEach(function(iconPoubelle) {
-        iconPoubelle.remove();
-    });
-    const galleryPreviewImgList = document.querySelectorAll(".galleryPreview img");
-    galleryPreviewImgList.forEach(function(galleryPreviewImg) {
-        galleryPreviewImg.remove();
-    });
-    const editerTitreList = document.querySelectorAll(".galleryPreview figcaption");
-    editerTitreList.forEach(function(editerTitre) {
-        editerTitre.remove();
-    });
+    // const iconPoubelleList = document.querySelectorAll(".fa-regular.fa-trash-can");
+    // iconPoubelleList.forEach(function(iconPoubelle) {
+    //     iconPoubelle.remove();
+    // });
+    // const galleryPreviewImgList = document.querySelectorAll(".galleryPreview img");
+    // galleryPreviewImgList.forEach(function(galleryPreviewImg) {
+    //     galleryPreviewImg.remove();
+    // });
+    // const editerTitreList = document.querySelectorAll(".galleryPreview figcaption");
+    // editerTitreList.forEach(function(editerTitre) {
+    //     editerTitre.remove();
+    // });
 
 }
 // femer la modale avec le bouton x

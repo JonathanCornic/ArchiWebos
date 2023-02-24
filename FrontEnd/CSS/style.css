@@ -286,6 +286,16 @@ footer{
     top: 5px;
     right: 5px;
 }
+/* bouton selection */
+.fa-arrows-up-down-left-right::before{
+    color: white;
+    background: black;
+    padding: 3px 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+}
 .separateur{
     width: 100%;
     height: 1px;
