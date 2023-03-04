@@ -1,6 +1,6 @@
 // appel et stockage du fetch
-let reponse = await fetch("http://localhost:5678/api/works");
-let projets = await reponse.json();
+const reponse = await fetch("http://localhost:5678/api/works");
+const projets = await reponse.json();
 if(reponse.ok){
     console.log(projets);
 }else{
