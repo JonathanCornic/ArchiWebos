@@ -1,0 +1,20 @@
+{
+    "nom" : "Portfolio-architecte-sophie-bluel" ,     
+    "version" : "1.0.0" ,     
+    "description" : "" ,     
+    "scénarios" : {     
+    "build" : "echo \"Pas de build spécifié\" && exit 1" ,         
+    "test" : "echo \"Aucun test spécifié\" && exit 1" ,         
+    "début" : "node index.js"         
+    } ,    
+    "dépôt" : {     
+    "type" : "git" ,         
+    "url" : "git+https://github.com/JonathanCornic/Portfolio-architecte-sophie-bluel.git"         
+    } ,    
+    "auteur" : "" ,     
+    "licence" : "ISC" ,     
+    "bugs" : {     
+    "url" : "https://github.com/JonathanCornic/Portfolio-architecte-sophie-bluel/issues"         
+    } ,    
+    "page d'accueil" : "https://github.com/JonathanCornic/Portfolio-architecte-sophie-bluel#readme"     
+}
