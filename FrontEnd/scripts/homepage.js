@@ -1,5 +1,5 @@
 // appel et stockage du fetch
-const reponse = await fetch("http://localhost:5678/api/works");
+const reponse = await fetch("http://localhost:3000/api/works");
 const projets = await reponse.json();
 if(reponse.ok){
     console.log(projets);
