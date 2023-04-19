@@ -38,7 +38,7 @@ if(admin === "true"){
 }
 // genere la preview et suppression de projet
 function genererPreview(){
-    fetch("http://localhost:3000/api/works")
+    fetch("http://localhost:5678/api/works")
         .then(reponse => {
             if(reponse.ok) {
                 return reponse.json();
@@ -66,7 +66,7 @@ function genererPreview(){
                 }
                 // supprimer un projet
                 iconPoubelle.addEventListener("click", function() {
-                    fetch(`http://localhost:3000/api/works/${element.id}`, {
+                    fetch(`http://localhost:5678/api/works/${element.id}`, {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function genererPreview(){
                 // supprimer tous les projets
                 const toutSupprimer = document.querySelector(".supprimerGalleryPreview");
                 toutSupprimer.addEventListener("click", function(){
-                    fetch(`http://localhost:3000/api/works/${element.id}`, {
+                    fetch(`http://localhost:5678/api/works/${element.id}`, {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
@@ -229,7 +229,7 @@ formModale.addEventListener("submit", (event) => {
     formData.append("title", titre.value);
     formData.append("category", select.value);
 
-    fetch("http://localhost:3000/api/works", {
+    fetch("http://localhost:5678/api/works", {
         method: "POST",
         body: formData,
         headers: {
