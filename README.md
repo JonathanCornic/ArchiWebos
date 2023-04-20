@@ -1,4 +1,7 @@
-# Openclassrooms Projet 3 : "Portfolio-architecte-sophie-bluel"
+# Portfolio-architecte-sophie-bluel - Photographe
+Projet 3 OpenClassrooms
+
+![Portfolio](https://img.shields.io/badge/Portfolio-Sophie%20Bluel-blue)
 
 L'objectif est d'ajouter des fonctionalités à l'aide de `Javascript` portfolio de "__Sophie Bluel__" (voir l'image ci-dessous).
 
