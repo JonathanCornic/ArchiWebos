@@ -35,3 +35,9 @@ Il est imprtant d'utiliser un serveur local type liveserveur pour faire fonction
 
 Je vous met le lien MDN ici pour se qui concerne les erreurs de type CORS :
 [lien](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp)
+
+## Comment me contacter
+
+Si vous avez des questions, des commentaires ou des propositions de collaboration, n'hésitez pas à me contacter par e-mail à cornicjonathan@gmail.com ou via mon profil LinkedIn à https://www.linkedin.com/in/jonathan-cornic-024607262/.
+
+Je suis fier d'avoir contribué à la conception des fonctionnalités du portfolio de Sophie Bluel, et je suis heureux de partager cette expérience avec vous.
