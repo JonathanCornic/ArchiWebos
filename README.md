@@ -5,7 +5,7 @@ Projet 3 OpenClassrooms
 
 L'objectif est d'ajouter des fonctionalités à l'aide de `Javascript` portfolio de "__Sophie Bluel__" (voir l'image ci-dessous).
 
-<img src="https://github.com/JonathanCornic/Portfolio-architecte-sophie-bluel/blob/main/sophie%20bluel%20preview%201.png" />
+<img src="https://github.com/JonathanCornic/Portfolio-architecte-sophie-bluel/blob/main/sophie%20bluel%20preview.png" />
   
 # Spécifications fonctionnelles
 * Creer __dynamiquement__ la galerie photo du portfolio.
